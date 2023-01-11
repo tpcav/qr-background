@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iPhone Background Generator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>QR Background Generator</h1>
+        
+    <div id="container">
+
+      <canvas id="background"></canvas>
+    </div>
+    <div class="buttonDiv">
+      <div class="ontop">
+        <input id="text" type="text" value="https://hogangnono.com" style="width:80%" /><br />
+        <div class="submitButtons">
+          <button id="generate-button">Generate</button>
+          <button id="save-button">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="generated"></div
+
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
