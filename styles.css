@@ -61,7 +61,7 @@ h1 {
 .qrBackground {
   position: relative;
   height: 70vh;
-  width: 400px;
+  width: 70vw;
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
