@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>QR code Generator</title>
+	<!-- S-Tech04 -->
+</head>
+
+<style>
+  *
+{
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+body
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #4a535b;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
+}
+
+h1{
+  justify-content: center;
+}
+
+.container
+{
+  position: relative;
+  width: 400px;
+  height: 100%;
+  padding: 40px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
+}
+.container #textData
+{
+  width: 100%;
+  height: 55px;
+  border-radius: 8px;
+  resize: none;
+  outline: none;
+  border: 2px solid #c0c0c0;
+  font-size: 16px;
+  padding: 15px;
+}
+.container #textData:focus
+{
+  border: 2px solid #383e43;
+}
+.container .qrCodeBx
+{
+  width: 100%;
+  height: 300px;
+  margin: 10px 0;
+  border: 2px solid #2c3135;
+  position: relative;
+  border-radius: 8px;
+}
+.container .qrCodeBx img
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+.container #qrGenerator
+{
+  width: 100%;
+  height: 50px;
+  background: #28313b;
+  border-radius: 50px;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.container #qrGenerator:active
+{
+  transform: scale(0.98);
+}
+</style>
+<body>
+	<div class="container">
+		<textarea id="textData" placeholder="Enter link here"></textarea>
+		<div class="qrCodeBx">
+			<canvas id="canvas" width=300 height=300></canvas>
+      <img src={qrCode.src} id="qrCode">
+		</div>
+		<button id="qrGenerator">Generate QR Code</button>
+	</div>
+
+	<script>
+    const data = document.querySelector('#textData');
+    const qrCode = document.querySelector('#qrCode');
+    const qrGenerator = document.querySelector('#qrGenerator');
+
+    const baseURL = "https://api.qrserver.com/v1/create-qr-code/"
+
+    qrGenerator.addEventListener('click',()=>{
+        const size = `350x350`
+        qrCode.src = `${baseURL}?/size=${size}&data=${data.value}`
+    })
+
+    var canvas = document.getElementsByTagName('canvas'),
+    var content = canvas.getContext('2d');
+
+    function insertImage() {
+      image = new Image();
+      image.src = document.getElementById('qrCode');     //any img src
+      image.onload = function(){
+        content.drawImage(image, 300, 300);
+      }
+    }
+
+insertImage();
+  </script>
+</body>
+</html>
