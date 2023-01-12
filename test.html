@@ -7,16 +7,16 @@
     <title>QR Background Maker</title>
   </head>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 
   <body>
     <div class="background">
-      <div class="qrBackground">
-        <div class="qrCodeBx">
-          <img src="QRdefault.png" id="qrCode">
-        </div>
+      <canvas id="canvas" class="qrBackground"></canvas>
+      <div class="qrCodeBx">
+          <img src="QRdefault.png" id="qrCode" class="qrCode">
       </div>
-    </div> 
+  </div>
 
 
     <div class="container">
@@ -25,12 +25,15 @@
       </div>
       <div class="submitButtons">
         <button id="qrGenerator">Generate QR Code</button>
-        <button id="randColor" onclick="randomBackground()">Random Background</button>
+        <button id="randColor" >Random Background</button>
+        <button id="saveButton" onclick="savePageAsImage()">
+          <i class="fa fa-save"></i>
+        </button>
       </div>
      
     </div>
 
     <script src="main.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
   </body>
 </html>

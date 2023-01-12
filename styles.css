@@ -104,3 +104,11 @@ h1 {
 .submitButtons {
   display: inline;
 }
+
+.show-on-save {
+  display: block !important;
+}
+
+.hide-on-save {
+  display: none;
+}
