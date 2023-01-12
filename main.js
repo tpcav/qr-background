@@ -60,22 +60,26 @@ function saveImage() {
 }
 
 function savePageAsImage() {
-  //hide elements
-  document.querySelectorAll('.container, .submitButtons').forEach(function(el) {
+  // hide elements
+  document.querySelectorAll('.container, .submitButtons:not(.show-on-save)').forEach(function(el) {
     el.classList.add('hide-on-save');
   });
-  // Capture the current state of the page
-  html2canvas(document.body).then(function(canvas) {
-      // Convert the canvas to a PNG image
-      var imgData = canvas.toDataURL('image/png');
-      // Show the elements again
-      document.querySelectorAll('.container, .submitButtons').forEach(function(el) {
-        el.classList.remove('hide-on-save');
+  // delay to make sure the qrCode is fully rendered
+  setTimeout(() => {
+      // Capture the current state of the page
+      html2canvas(document.body, {scale: 2}).then(function(canvas) {
+          // Convert the canvas to a PNG image
+          var imgData = canvas.toDataURL('image/png', 1);
+          // Show the elements again
+          document.querySelectorAll('.container, .submitButtons:not(.show-on-save)').forEach(function(el) {
+            el.classList.remove('hide-on-save');
+          });
+          // Save the image to the user's device
+          var link = document.createElement('a');
+          link.download = 'QR-Background.png';
+          link.href = imgData;
+          link.click();
       });
-      // Save the image to the user's device
-      var link = document.createElement('a');
-      link.download = 'QR-Background.png';
-      link.href = imgData;
-      link.click();
-  });
+  }, 500);
 }
+
