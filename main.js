@@ -9,7 +9,8 @@ qrGenerator.addEventListener('click',()=>{
     qrCode.src = `${baseURL}?/size=${size}&data=${data.value}`
 
     if (data.value == "") {
-        qrCode.src = "/asset/QRdefault.png"
+        qrCode.src = "QRdefault.png"
+        alert('Please enter a URL.');
     }
 })
 
