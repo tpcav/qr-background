@@ -1,4 +1,3 @@
-
 const data = document.querySelector('#textData');
 const qrCode = document.querySelector('#qrCode');
 const qrGenerator = document.querySelector('#qrGenerator');
@@ -13,3 +12,22 @@ qrGenerator.addEventListener('click',()=>{
         qrCode.src = "/asset/QRdefault.png"
     }
 })
+
+function randomBackground() {
+  var color1 = getRandomColor();
+  var color2 = getRandomColor();
+  var color3 = getRandomColor();
+  var bgDiv = document.querySelector(".qrBackground");
+    bgDiv.style.background = "linear-gradient(150deg, " + color1 + " 0%, " + color2 + " 100%, " + color3 + " 100%)";
+}
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+
