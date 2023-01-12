@@ -3,14 +3,17 @@ const qrCode = document.querySelector('#qrCode');
 const qrGenerator = document.querySelector('#qrGenerator');
 const qrBackground = document.querySelector('.qrBackground');
 const saveButton = document.querySelector('#saveButton');
-const canvas = document.getElementById("canvas");
 
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
 const baseURL = "https://api.qrserver.com/v1/create-qr-code/";
 
 qrGenerator.addEventListener('click',()=>{
   const size = `350x350`
-  qrCode.src = `${baseURL}?/size=${size}&data=${data.value}`
+  qrCode.src = `${baseURL}?/size=${size}&data=${data.value}&format=svg`
+  ctx.fill(qrCode.src);
+
   if (data.value == "") {
       qrCode.src = "QRdefault.png"
       saveButton.disabled = true;
@@ -19,6 +22,8 @@ qrGenerator.addEventListener('click',()=>{
       saveButton.disabled = false;
   }
 })
+
+
 
 function randomBackground() {
     var color1 = getRandomColor();
