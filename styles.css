@@ -61,7 +61,6 @@ h1 {
 
 #qrGenerator {
   margin-top: 0.75rem;
-  margin: .20rem;
   padding: 1rem;
   font-size: 1rem;
   font-weight: 500;
@@ -113,13 +112,16 @@ h1 {
 }
 
 .submitButtons {
-  display: inline;
+  display: grid;
 }
 
 
 #saveButton {
   padding: 1rem;
-  border-radius: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: white;
+  border-radius: 0.50rem;
   border: none;
   cursor: pointer;
   margin-left: 0.20rem;
