@@ -6,7 +6,6 @@ html {
 body {
   min-height: vh;
   min-height: -webkit-fill-available;
-  overflow-y: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +138,6 @@ h1 {
 #canvas {
   width: 100vw;
   height: 100vh;
-  overflow-y: hidden;
   z-index: 0;
 }
 
@@ -147,6 +145,5 @@ h1 {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  overflow-y: hidden;
   padding-bottom: 1rem;
 }
