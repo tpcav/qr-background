@@ -1,11 +1,15 @@
 html {
   height: -webkit-fill-available; /* We have to fix html height */
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
 body {
-  min-height: 100vh;
+  min-height: 98vh;
   min-height: -webkit-fill-available;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
@@ -48,7 +52,7 @@ h1 {
   resize: none;
   border: none;
   font-size: 1rem;
-  width: 250px;
+  width: 270px;
   height: 2rem;
   border-radius: 10rem;
   padding-top: 0.80rem;
@@ -56,7 +60,8 @@ h1 {
 }
 
 #qrGenerator {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
+  margin: .20rem;
   padding: 1rem;
   font-size: 1rem;
   font-weight: 500;
@@ -87,14 +92,14 @@ h1 {
 #qrCode {
   width: 75px;
   padding: 0.60rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
   background: white;
   border-radius: 0.75rem;
   
 }
 
 #randColor {
-  margin-top: 0.50rem;
+  margin-top: 0.75rem;
   padding: 1rem;
   font-size: 1rem;
   font-weight: 100;
@@ -116,7 +121,7 @@ h1 {
   padding: 1rem;
   border-radius: 0.75rem;
   border: none;
-  margin-left: 1rem;
+  margin-left: 0.20rem;
   background-color: rgba(0, 0, 0, 0.279);
 }
 
@@ -131,8 +136,6 @@ h1 {
 #canvas {
   width: 100%;
   height: 98vh;
-  border-radius: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 1.6rem;
+  z-index: 0;
 }
