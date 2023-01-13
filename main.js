@@ -65,19 +65,6 @@ window.onload = function() {
   });
 
 
-  
-  saveButton.addEventListener('click', function() {
-    // Get the dataURL of the canvas
-    const dataURL = canvas.toDataURL();
-    console.log(dataURL);
-    // Create a link to download the image
-    const link = document.createElement('a');
-    link.download = 'QR-code.png';
-    link.href = dataURL;
-    // Click the link to trigger the download
-    link.click();
-  });
-
   function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -87,3 +74,15 @@ window.onload = function() {
     return color;
   }
 }
+
+saveButton.addEventListener('click', function() {
+  // Get the dataURL of the canvas
+  const dataURL = canvas.toDataURL();
+  console.log(dataURL);
+  // Create a link to download the image
+  const link = document.createElement('a');
+  link.download = 'QR-code.png';
+  link.href = dataURL;
+  // Click the link to trigger the download
+  link.click();
+});
