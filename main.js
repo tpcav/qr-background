@@ -7,27 +7,19 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const baseURL = "https://api.qrserver.com/v1/create-qr-code/";
 
-
 window.onload = function() {
-  function randomBackground() {
-    var color1 = getRandomColor();
-    var color2 = getRandomColor();
-    var color3 = getRandomColor();
-    qrBackground.style.background = "linear-gradient(150deg, " + color1 + " 0%, " + color2 + " 100%, " + color3 + " 100%)";
-    const randomBackgroundColor = window.getComputedStyle(qrBackground).backgroundColor;
-    ctx.drawImage(randomBackgroundColor, canvas.width, canvas.height);
-}
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
 
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
+  // Create linear gradient
+  const gradient = ctx.createLinearGradient(500, 0, canvas.width, canvas.height);
+  gradient.addColorStop(0.5, "LightSkyBlue");
+  gradient.addColorStop(0, "SteelBlue");
+  gradient.addColorStop(1, "RoyalBlue");
+  
 
-document.querySelector("#randColor").addEventListener("click", randomBackground);
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   qrGenerator.addEventListener('click',()=>{
     const size = `350x350`
@@ -35,10 +27,17 @@ document.querySelector("#randColor").addEventListener("click", randomBackground)
     img.src = `${baseURL}?/size=${size}&data=${data.value}&format=svg`;
     img.crossOrigin = "anonymous";
     img.onload = function() {
-      const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d");
-      canvas.width = canvas.clientWidth
-      canvas.height = canvas.clientHeight    
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+
+      // Create linear gradient
+      const gradient = ctx.createLinearGradient(500, 0, canvas.width, canvas.height);
+      gradient.addColorStop(0.5, "LightSkyBlue");
+      gradient.addColorStop(0, "SteelBlue");
+      gradient.addColorStop(1, "RoyalBlue");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       img.width = '100';
       img.height = '100';
@@ -48,9 +47,25 @@ document.querySelector("#randColor").addEventListener("click", randomBackground)
 
       ctx.drawImage(img, centerX, centerY, img.width, img.height);
     };
-  })
-  
+  });
 
+  const randomColor = document.getElementById('randColor');
+
+  randomColor.addEventListener('click', function() {
+    // Generate two random colors for the gradient
+    const color1 = getRandomColor();
+    const color2 = getRandomColor();
+
+    // Create linear gradient
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, color1);
+    gradient.addColorStop(1, color2);
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  });
+
+
+  
   saveButton.addEventListener('click', function() {
     // Get the dataURL of the canvas
     const dataURL = canvas.toDataURL();
@@ -62,4 +77,13 @@ document.querySelector("#randColor").addEventListener("click", randomBackground)
     // Click the link to trigger the download
     link.click();
   });
+
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 }
