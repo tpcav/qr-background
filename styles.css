@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  min-height: 98vh;
+  min-height: vh;
   min-height: -webkit-fill-available;
   overflow-y: hidden;
   display: flex;
@@ -135,7 +135,7 @@ h1 {
 
 #canvas {
   width: 100%;
-  height: 98vh;
+  height: 100vh;
   border-radius: 1.6rem;
   z-index: 0;
 }
