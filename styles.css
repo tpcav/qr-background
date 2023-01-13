@@ -138,13 +138,11 @@ h1 {
   width: 100vw;
   height: 100vh;
   overflow-y: hidden;
-  position: fixed;
   z-index: 0;
 }
 
 .canvasDiv {
   position: fixed;
-  display: flex;
   width: 100vw;
   height: 100vh;
   overflow-y: hidden;
