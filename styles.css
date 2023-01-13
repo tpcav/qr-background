@@ -134,7 +134,7 @@ h1 {
 }
 
 #canvas {
-  width: 100%;
+  width: 500px;
   height: 100vh;
   border-radius: 1.6rem;
   z-index: 0;
