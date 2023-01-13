@@ -39,11 +39,11 @@ window.onload = function() {
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      img.width = '50';
-      img.height = '50';
+      img.width = '100';
+      img.height = '100';
 
       const centerX = canvas.width / 2 - (img.width / 2);
-      const centerY = canvas.height / 2 - (img.height / 2);
+      const centerY = 300 - (img.height / 2);
 
       ctx.drawImage(img, centerX, centerY, img.width, img.height);
     };
